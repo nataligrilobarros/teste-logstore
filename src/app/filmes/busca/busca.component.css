@@ -1,0 +1,41 @@
+
+
+.box-resultado-busca{
+  min-height: 225px;
+  width: 100%;
+  background-color: #f3f3f3;
+  color: 333;
+  padding: 10px;
+  border: 2px solid #ccc;
+  margin-top: 10px;
+}
+
+.box-resultado-busca img{
+  height: 200px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.overview, .release_date{
+  font-size: 12px;
+}
+
+.btns-resultado-busca{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btns-resultado-busca .btn{
+  width: 100%;
+}
+
+.btn-assistir-agora{
+  background: #d7962a !important;
+  color: #fff;
+}
+
+.btn-detalhes{
+  background: #66127D !important;
+  border: none;
+  color: #fff;
+}

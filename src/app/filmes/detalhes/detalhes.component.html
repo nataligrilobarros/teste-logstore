@@ -1,0 +1,57 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-lg-4 col-sm-4">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{filme.poster_path}}" alt="{{filme.title}}">
+      </div>
+      
+      <div class="col-xs-8 col-lg-8 col-sm-8">
+        
+        <h1> {{filme.title}} </h1>
+        <p>  <strong>Popularidade:</strong> {{filme.popularity}}  </p>
+        <p>  <strong>Avaliação:</strong> {{filme.vote_average}}  </p>
+        <p> <strong>Data de lançamento:</strong>  {{filme.release_date | date: 'dd/MM/yyyy'}}  </p>
+        <div class="generos">
+          <p> <strong>Genero:</strong>
+            <span *ngFor="let genero of generos">
+              {{genero.name}} | 
+            </span>
+          </p>
+        </div>
+        
+        <p>  {{filme.overview}}  </p>
+
+        <button class="btn btn-warning btn-assistir-agora"> <i class="fa-solid fa-film"></i> ASSISTIR AGORA</button>
+        <br>
+        <br>
+        <button class="btn btn-danger" onclick="history.back()"> <i class="fa-solid fa-rotate-left"></i> VOLTAR </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <h1>Recomendados</h1>
+    <div class="navegacao-banner">
+      <button class="btn btn-info btn-navegacao" (click)="carregarMaisFilmesAnterior()"> <i class="fa-solid fa-angles-left"></i> </button>
+          Pagina {{paginaAtual}}/{{totalPaginas}}
+      <button class="btn btn-info btn-navegacao" (click)="carregarMaisFilmesProximo()"> <i class="fa-solid fa-angles-right"></i> </button>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-lg-3 col-sm-3" *ngFor="let filme of filmesRecomendados">
+          <div class="card">
+            <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{filme.poster_path}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{filme.title}}</h5>
+              <p class="card-text p-descricao"> {{filme.overview | slice:0:60}} </p>
+              <span class="p-lan-av">
+                <strong>Lançamento:</strong> {{filme.release_date | date: 'dd/MM/yyyy' }} 
+                <br>
+                <strong>Avaliação:</strong> {{filme.vote_average }} 
+              </span>
+              <a href="#" class="btn btn-primary btn-detalhes" [routerLink]="['/detalhes/', filme.id]"> <i class="fa-solid fa-circle-info"></i> Detalhes </a>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  </div>
